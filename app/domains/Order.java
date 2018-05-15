@@ -9,8 +9,6 @@ public class Order {
     @GeneratedValue
     private Long id;
 
-    @Basic
-    @Temporal(TemporalType.DATE)
     private Date date;
-    
+
 }
