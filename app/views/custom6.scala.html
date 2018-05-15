@@ -1,0 +1,18 @@
+@(car: domains.Car)
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Custom7</title>
+    </head>
+    <body>
+        <h1>Create your own car!</h1>
+        <form method="POST" action="@routes.Custom6Controller.loginSubmit">
+            <input type="text" name="brand" value="Volvo">
+            <br />
+            <input type="number" name="tires" value="4">
+            <br />
+            <input type="submit">
+        </form>
+    </body>
+</html>

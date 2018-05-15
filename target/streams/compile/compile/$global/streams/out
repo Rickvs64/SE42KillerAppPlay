@@ -1,0 +1,3 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rickv\Desktop\play-java-starter-example\app\controllers\Custom6Controller.java:33:1:  java.lang.String cannot be converted to java.lang.Integer[0m
+[0m[[0m[31merror[0m] [0m[0m        myCar.setTires(requestData.get("tires"));[0m
+[0m[[0m[0minfo[0m] [0m[0mSome messages have been simplified; recompile with -Xdiags:verbose to get full output[0m

@@ -1,0 +1,34 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+# Custom 1: Returns a predetermined string
+GET     /custom1                    controllers.Custom1Controller.example
+
+# Custom 2: Returns a custom string
+GET     /custom2/:teststring        controllers.Custom2Controller.example(teststring)
+
+# Custom 3: Returns a custom string in a fancy page
+GET     /custom3/:teststring        controllers.Custom3Controller.example(teststring)
+
+# Custom 4: Returns a class in Json
+GET     /custom4                    controllers.Custom4Controller.example
+
+# Custom 5: Returns a class in a webpage
+GET     /custom5                    controllers.Custom5Controller.example
+
+# Custom 6: Show a create-your-car form
+GET     /custom6                    controllers.Custom6Controller.example
+
+# Custom 6: Login submit
+POST     /custom6submit             controllers.Custom6Controller.loginSubmit
