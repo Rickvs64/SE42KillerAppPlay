@@ -16,15 +16,15 @@ public class Account {
     @GeneratedValue
     private Long id;
 
+
     @Column(nullable = false)
     private String email;
 
     @Column(nullable = false)
     private String password;
 
-    // Will become customer_id, as Customer declares mappedBy Account - thus Account is responsible for the relation.
-    @OneToOne
-    @JsonIgnore
+    // Will become customer_id.
+    @ManyToOne
     private Customer customer;
 
     // Note that this method does NOT remove orphans. Orphaned orders should still exist in the db.
@@ -65,5 +65,37 @@ public class Account {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<CustomOrder> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<CustomOrder> orders) {
+        this.orders = orders;
     }
 }

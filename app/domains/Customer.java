@@ -22,10 +22,7 @@ public class Customer {
     private String city;
     private String country;
 
-    // The Account class has a property called 'customer'.
-    // THAT one will be turned into a 'customer_id' foreign key column.
-    @OneToOne(mappedBy = "customer")
-    private Account account;
+
 
 
     public String getFirstname() {
@@ -44,13 +41,6 @@ public class Customer {
         this.surname = surname;
     }
 
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
 
 
 
@@ -66,16 +56,6 @@ public class Customer {
     public Customer(String firstname, String surname) {
         this.firstname = firstname;
         this.surname = surname;
-    }
-
-    /**
-     * Create a new customer with only essential information AND an already existing link to an account.
-     * @param firstname
-     */
-    public Customer(String firstname, String surname, Account account) {
-        this.firstname = firstname;
-        this.surname = surname;
-        this.account = account;
     }
 
     /**
