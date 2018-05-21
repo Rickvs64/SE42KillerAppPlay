@@ -43,19 +43,73 @@ public class SQLCustomerRepo implements ICustomerRepo {
 
     @Override
     public Customer getCustomerByName(String name) {
+        init();
 
-        return null;
+        try {
+            Customer customer = em.find(Customer.class, name);
+
+            return customer;
+        } catch (Exception ex) {
+            return null;
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public Customer getCustomerById(Long id) {
+        init();
+
+        try {
+            Customer customer = em.find(Customer.class, id);
+
+            return customer;
+        } catch (Exception ex) {
+            return null;
+        } finally {
+            em.close();
+        }
     }
 
     @Override
     public List<Customer> getAllCustomers() {
-        return null;
+        init();
+
+        try {
+            List<Customer> customers = em.createQuery("SELECT c FROM Customer c", Customer.class).getResultList();
+
+            return customers;
+        } catch (Exception ex) {
+            return null;
+        } finally {
+            em.close();
+        }
     }
 
     @Override
     public boolean deleteCustomer(Customer customer) {
+        init();
 
-        return false;
+        try {
+            // Get transaction.
+            et = em.getTransaction();
+
+            // Start the transaction.
+            et.begin();
+
+            em.remove(customer);
+
+            // Finally commit changes.
+            et.commit();
+
+            return true;
+        } catch (Exception ex) {
+            // Do a rollback just in case.
+            et.rollback();
+            return false;
+        } finally {
+            em.close();
+        }
     }
 
     private void init() {
