@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/rickv/Desktop/play-java-starter-example/conf/routes
-// @DATE:Tue Apr 24 11:50:40 CEST 2018
+// @DATE:Mon May 21 14:12:10 CEST 2018
 
 package router
 
@@ -25,15 +25,17 @@ class Routes(
   // @LINE:16
   Custom1Controller_0: controllers.Custom1Controller,
   // @LINE:19
-  Custom2Controller_7: controllers.Custom2Controller,
+  Custom2Controller_8: controllers.Custom2Controller,
   // @LINE:22
-  Custom3Controller_8: controllers.Custom3Controller,
+  Custom3Controller_9: controllers.Custom3Controller,
   // @LINE:25
   Custom4Controller_4: controllers.Custom4Controller,
   // @LINE:28
   Custom5Controller_5: controllers.Custom5Controller,
   // @LINE:31
-  Custom6Controller_9: controllers.Custom6Controller,
+  Custom6Controller_10: controllers.Custom6Controller,
+  // @LINE:39
+  CustomerController_7: controllers.CustomerController,
   val prefix: String
 ) extends GeneratedRouter {
 
@@ -50,20 +52,22 @@ class Routes(
     // @LINE:16
     Custom1Controller_0: controllers.Custom1Controller,
     // @LINE:19
-    Custom2Controller_7: controllers.Custom2Controller,
+    Custom2Controller_8: controllers.Custom2Controller,
     // @LINE:22
-    Custom3Controller_8: controllers.Custom3Controller,
+    Custom3Controller_9: controllers.Custom3Controller,
     // @LINE:25
     Custom4Controller_4: controllers.Custom4Controller,
     // @LINE:28
     Custom5Controller_5: controllers.Custom5Controller,
     // @LINE:31
-    Custom6Controller_9: controllers.Custom6Controller
-  ) = this(errorHandler, HomeController_2, CountController_1, AsyncController_3, Assets_6, Custom1Controller_0, Custom2Controller_7, Custom3Controller_8, Custom4Controller_4, Custom5Controller_5, Custom6Controller_9, "/")
+    Custom6Controller_10: controllers.Custom6Controller,
+    // @LINE:39
+    CustomerController_7: controllers.CustomerController
+  ) = this(errorHandler, HomeController_2, CountController_1, AsyncController_3, Assets_6, Custom1Controller_0, Custom2Controller_8, Custom3Controller_9, Custom4Controller_4, Custom5Controller_5, Custom6Controller_10, CustomerController_7, "/")
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, HomeController_2, CountController_1, AsyncController_3, Assets_6, Custom1Controller_0, Custom2Controller_7, Custom3Controller_8, Custom4Controller_4, Custom5Controller_5, Custom6Controller_9, prefix)
+    new Routes(errorHandler, HomeController_2, CountController_1, AsyncController_3, Assets_6, Custom1Controller_0, Custom2Controller_8, Custom3Controller_9, Custom4Controller_4, Custom5Controller_5, Custom6Controller_10, CustomerController_7, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -82,6 +86,7 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """custom5""", """controllers.Custom5Controller.example"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """custom6""", """controllers.Custom6Controller.example"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """custom6submit""", """controllers.Custom6Controller.loginSubmit"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """customer/add/""" + "$" + """newname<[^/]+>""", """controllers.CustomerController.addCustomer(newname:String)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -184,7 +189,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("custom2/"), DynamicPart("teststring", """[^/]+""",true)))
   )
   private[this] lazy val controllers_Custom2Controller_example5_invoker = createInvoker(
-    Custom2Controller_7.example(fakeValue[String]),
+    Custom2Controller_8.example(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Custom2Controller",
@@ -202,7 +207,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("custom3/"), DynamicPart("teststring", """[^/]+""",true)))
   )
   private[this] lazy val controllers_Custom3Controller_example6_invoker = createInvoker(
-    Custom3Controller_8.example(fakeValue[String]),
+    Custom3Controller_9.example(fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Custom3Controller",
@@ -256,7 +261,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("custom6")))
   )
   private[this] lazy val controllers_Custom6Controller_example9_invoker = createInvoker(
-    Custom6Controller_9.example,
+    Custom6Controller_10.example,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Custom6Controller",
@@ -274,7 +279,7 @@ class Routes(
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("custom6submit")))
   )
   private[this] lazy val controllers_Custom6Controller_loginSubmit10_invoker = createInvoker(
-    Custom6Controller_9.loginSubmit,
+    Custom6Controller_10.loginSubmit,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.Custom6Controller",
@@ -283,6 +288,24 @@ class Routes(
       "POST",
       this.prefix + """custom6submit""",
       """ Custom 6: Login submit""",
+      Seq()
+    )
+  )
+
+  // @LINE:39
+  private[this] lazy val controllers_CustomerController_addCustomer11_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("customer/add/"), DynamicPart("newname", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_CustomerController_addCustomer11_invoker = createInvoker(
+    CustomerController_7.addCustomer(fakeValue[String]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CustomerController",
+      "addCustomer",
+      Seq(classOf[String]),
+      "GET",
+      this.prefix + """customer/add/""" + "$" + """newname<[^/]+>""",
+      """ Add customer""",
       Seq()
     )
   )
@@ -323,13 +346,13 @@ class Routes(
     // @LINE:19
     case controllers_Custom2Controller_example5_route(params@_) =>
       call(params.fromPath[String]("teststring", None)) { (teststring) =>
-        controllers_Custom2Controller_example5_invoker.call(Custom2Controller_7.example(teststring))
+        controllers_Custom2Controller_example5_invoker.call(Custom2Controller_8.example(teststring))
       }
   
     // @LINE:22
     case controllers_Custom3Controller_example6_route(params@_) =>
       call(params.fromPath[String]("teststring", None)) { (teststring) =>
-        controllers_Custom3Controller_example6_invoker.call(Custom3Controller_8.example(teststring))
+        controllers_Custom3Controller_example6_invoker.call(Custom3Controller_9.example(teststring))
       }
   
     // @LINE:25
@@ -347,13 +370,19 @@ class Routes(
     // @LINE:31
     case controllers_Custom6Controller_example9_route(params@_) =>
       call { 
-        controllers_Custom6Controller_example9_invoker.call(Custom6Controller_9.example)
+        controllers_Custom6Controller_example9_invoker.call(Custom6Controller_10.example)
       }
   
     // @LINE:34
     case controllers_Custom6Controller_loginSubmit10_route(params@_) =>
       call { 
-        controllers_Custom6Controller_loginSubmit10_invoker.call(Custom6Controller_9.loginSubmit)
+        controllers_Custom6Controller_loginSubmit10_invoker.call(Custom6Controller_10.loginSubmit)
+      }
+  
+    // @LINE:39
+    case controllers_CustomerController_addCustomer11_route(params@_) =>
+      call(params.fromPath[String]("newname", None)) { (newname) =>
+        controllers_CustomerController_addCustomer11_invoker.call(CustomerController_7.addCustomer(newname))
       }
   }
 }

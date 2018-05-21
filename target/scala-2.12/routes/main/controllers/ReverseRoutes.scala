@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/rickv/Desktop/play-java-starter-example/conf/routes
-// @DATE:Tue Apr 24 11:50:40 CEST 2018
+// @DATE:Mon May 21 14:12:10 CEST 2018
 
 import play.api.mvc.Call
 
@@ -37,6 +37,21 @@ package controllers {
     def example(teststring:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "custom2/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("teststring", teststring)))
+    }
+  
+  }
+
+  // @LINE:39
+  class ReverseCustomerController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:39
+    def addCustomer(newname:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "customer/add/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("newname", newname)))
     }
   
   }

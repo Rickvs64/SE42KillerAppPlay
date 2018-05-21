@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/rickv/Desktop/play-java-starter-example/conf/routes
-// @DATE:Tue Apr 24 11:50:40 CEST 2018
+// @DATE:Mon May 21 14:12:10 CEST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -45,6 +45,26 @@ package controllers.javascript {
       """
         function(teststring0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "custom2/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("teststring", teststring0))})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:39
+  class ReverseCustomerController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:39
+    def addCustomer: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CustomerController.addCustomer",
+      """
+        function(newname0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "customer/add/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("newname", newname0))})
         }
       """
     )

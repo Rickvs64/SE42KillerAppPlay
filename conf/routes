@@ -32,3 +32,8 @@ GET     /custom6                    controllers.Custom6Controller.example
 
 # Custom 6: Login submit
 POST     /custom6submit             controllers.Custom6Controller.loginSubmit
+
+
+
+# Add customer
+GET    /customer/add/:newname       controllers.CustomerController.addCustomer(newname)

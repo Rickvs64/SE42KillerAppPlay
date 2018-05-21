@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/rickv/Desktop/play-java-starter-example/conf/routes
-// @DATE:Tue Apr 24 11:50:40 CEST 2018
+// @DATE:Mon May 21 14:12:10 CEST 2018
 
 
 package router {

@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/rickv/Desktop/play-java-starter-example/conf/routes
-// @DATE:Tue Apr 24 11:50:40 CEST 2018
+// @DATE:Mon May 21 14:12:10 CEST 2018
 
 package controllers;
 
@@ -10,6 +10,7 @@ public class routes {
   
   public static final controllers.ReverseAssets Assets = new controllers.ReverseAssets(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseCustom2Controller Custom2Controller = new controllers.ReverseCustom2Controller(RoutesPrefix.byNamePrefix());
+  public static final controllers.ReverseCustomerController CustomerController = new controllers.ReverseCustomerController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseCustom6Controller Custom6Controller = new controllers.ReverseCustom6Controller(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseCustom4Controller Custom4Controller = new controllers.ReverseCustom4Controller(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseCountController CountController = new controllers.ReverseCountController(RoutesPrefix.byNamePrefix());
@@ -23,6 +24,7 @@ public class routes {
     
     public static final controllers.javascript.ReverseAssets Assets = new controllers.javascript.ReverseAssets(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseCustom2Controller Custom2Controller = new controllers.javascript.ReverseCustom2Controller(RoutesPrefix.byNamePrefix());
+    public static final controllers.javascript.ReverseCustomerController CustomerController = new controllers.javascript.ReverseCustomerController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseCustom6Controller Custom6Controller = new controllers.javascript.ReverseCustom6Controller(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseCustom4Controller Custom4Controller = new controllers.javascript.ReverseCustom4Controller(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseCountController CountController = new controllers.javascript.ReverseCountController(RoutesPrefix.byNamePrefix());
