@@ -8,7 +8,7 @@
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.username">dbi338727</property>
         <property name="connection.password">Welkom.01</property>
-        <!-- <property name="dialect">org.hibernate.dialect.MySQLDialect</property> -->
+        <!-- <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property> -->
         <property name="show_sql">true</property>
         <property name="id.new_generator_mappings">false</property>
 

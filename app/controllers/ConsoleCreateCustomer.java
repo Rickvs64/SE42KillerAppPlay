@@ -9,7 +9,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.Scanner;
 
-public class Test {
+public class ConsoleCreateCustomer {
 
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("bowshop");
     private static EntityManager em = emf.createEntityManager();

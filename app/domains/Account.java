@@ -1,6 +1,8 @@
 package domains;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Account class, contains login and internet info
@@ -18,8 +20,14 @@ public class Account {
     @Column(nullable = false)
     private String password;
 
+    // Will become customer_id, as Customer declares mappedBy Account - thus Account is responsible for the relation.
     @OneToOne
     private Customer customer;
+
+    // Note that this method does NOT remove orphans. Orphaned orders should still exist in the db.
+    @OneToMany(mappedBy = "account", cascade = CascadeType.PERSIST)
+    private List<CustomOrder> orders = new ArrayList<>();
+
 
     /**
      * DO NOT USE!

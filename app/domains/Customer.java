@@ -22,6 +22,8 @@ public class Customer {
     private String city;
     private String country;
 
+    // The Account class has a property called 'customer'.
+    // THAT one will be turned into a 'customer_id' foreign key column.
     @OneToOne(mappedBy = "customer")
     private Account account;
 
