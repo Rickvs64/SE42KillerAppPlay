@@ -1,8 +1,9 @@
 package domains;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.List;
 
 /**
  * Order class, called 'CustomOrder' because Hibernate throws some strange error if it's called 'Order'.
@@ -23,6 +24,9 @@ public class CustomOrder {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
     private Account account;
+
+    @ManyToMany(mappedBy = "orders")
+    private List<Product> products = new ArrayList<>();
 
     /**
      * DO NOT USE!

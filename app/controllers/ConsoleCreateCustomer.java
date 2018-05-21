@@ -13,7 +13,6 @@ public class ConsoleCreateCustomer {
 
     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("bowshop");
     private static EntityManager em = emf.createEntityManager();
-    private static EntityTransaction et = null;
 
     public static void main(String[] args) {
         testTransaction();
@@ -40,18 +39,14 @@ public class ConsoleCreateCustomer {
         show("Now trying to insert this guy into our database.");
 
         try {
-            // Get transaction.
-            et = em.getTransaction();
-
-            // Start the transaction.
-            et.begin();
+            em.getTransaction().begin();
 
             // Sync the new customer with database.
             em.persist(newCustomer);
             em.persist(newAccount);
 
             // Finally commit changes
-            et.commit();
+            em.getTransaction().commit();
 
             show("Success! Customer has been inserted into the database.");
         } catch (Exception ex) {

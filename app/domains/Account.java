@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Account class, contains login and internet info
+ * Account class, contains login and online info
  */
 @Entity
 public class Account {
