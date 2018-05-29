@@ -10,7 +10,6 @@ import java.util.List;
 
 public class SQLAccountRepo implements IAccountRepo {
 
-    private static EntityManagerFactory emf;
     private static EntityManager em;
     private static EntityTransaction et = null;
 
@@ -37,7 +36,7 @@ public class SQLAccountRepo implements IAccountRepo {
             et.rollback();
             return false;
         } finally {
-            em.close();
+            // em.close();
         }
     }
 
@@ -48,21 +47,95 @@ public class SQLAccountRepo implements IAccountRepo {
 
     @Override
     public Account getAccountById(Long id) {
-        return null;
+        init();
+
+        try {
+            Account account = em.find(Account.class, id);
+
+            return account;
+        } catch (Exception ex) {
+            return null;
+        } finally {
+            // em.close();
+        }
     }
 
     @Override
     public List<Account> getAllAccounts() {
-        return null;
+        init();
+
+        try {
+            List<Account> accounts = em.createQuery("SELECT a FROM Account a", Account.class).getResultList();
+
+            return accounts;
+        } catch (Exception ex) {
+            return null;
+        } finally {
+            // em.close();
+        }
     }
 
     @Override
     public boolean deleteAccount(Account account) {
-        return false;
+        init();
+
+        try {
+            // Get transaction.
+            et = em.getTransaction();
+
+            // Start the transaction.
+            et.begin();
+
+            em.persist(account);
+            em.remove(account);
+
+            // Finally commit changes.
+            et.commit();
+
+            return true;
+        } catch (Exception ex) {
+            // Do a rollback just in case.
+            et.rollback();
+            return false;
+        } finally {
+            // em.close();
+        }
+    }
+
+    @Override
+    public boolean updateAccount(Account newAccProperties) {
+        init();
+
+        try {
+            // Get transaction.
+            et = em.getTransaction();
+
+            // Start the transaction.
+            et.begin();
+
+            // Obviously NOT the NewAcc, which only acts as a temporary shell that contains new info!
+            Account existingAcc = em.find(Account.class, newAccProperties.getId());
+            em.persist(existingAcc);
+
+            // Manual approach to UPDATE.
+            // Copy over a few properties.
+            existingAcc.setEmail(newAccProperties.getEmail());
+            existingAcc.setPassword(newAccProperties.getPassword());
+            
+            // Finally commit changes.
+            et.commit();
+
+            return true;
+        } catch (Exception ex) {
+            // Do a rollback just in case.
+            et.rollback();
+            return false;
+        } finally {
+            // em.close();
+        }
     }
 
     private void init() {
-        emf = Persistence.createEntityManagerFactory("bowshop");
-        em = emf.createEntityManager();
+        em = DBConnector.getEntityManager();
     }
 }

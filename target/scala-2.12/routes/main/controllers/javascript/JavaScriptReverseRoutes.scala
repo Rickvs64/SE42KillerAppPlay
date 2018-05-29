@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/rickv/Desktop/play-java-starter-example/conf/routes
-// @DATE:Mon May 21 14:12:10 CEST 2018
+// @DATE:Tue May 29 12:28:10 CEST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -59,12 +59,32 @@ package controllers.javascript {
     }
 
   
+    // @LINE:45
+    def getCustomerById: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CustomerController.getCustomerById",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "customer/getbyid/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
     // @LINE:39
     def addCustomer: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.CustomerController.addCustomer",
       """
         function(newname0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "customer/add/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[String]].javascriptUnbind + """)("newname", newname0))})
+        }
+      """
+    )
+  
+    // @LINE:42
+    def getAllCustomers: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CustomerController.getAllCustomers",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "customer/getall"})
         }
       """
     )
@@ -235,6 +255,66 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "message"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:50
+  class ReverseAccountController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:50
+    def getAllAccounts: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AccountController.getAllAccounts",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "account/getall"})
+        }
+      """
+    )
+  
+    // @LINE:59
+    def addAccount: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AccountController.addAccount",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "account/add"})
+        }
+      """
+    )
+  
+    // @LINE:62
+    def updateAccount: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AccountController.updateAccount",
+      """
+        function(id0) {
+          return _wA({method:"PUT", url:"""" + _prefix + { _defaultPrefix } + """" + "account/update/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:53
+    def getAccountById: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AccountController.getAccountById",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "account/getbyid/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:56
+    def deleteAccount: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AccountController.deleteAccount",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "account/delete/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
         }
       """
     )

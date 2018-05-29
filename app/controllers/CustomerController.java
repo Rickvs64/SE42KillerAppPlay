@@ -11,6 +11,10 @@ import repositories.ICustomerRepo;
 import repositories.SQLAccountRepo;
 import repositories.SQLCustomerRepo;
 
+import javax.inject.Singleton;
+
+
+@Singleton
 public class CustomerController extends Controller {
 
     ICustomerRepo customerRepo = new SQLCustomerRepo();
@@ -26,6 +30,14 @@ public class CustomerController extends Controller {
         accountRepo.addAccount(acc);
 
         return ok(Json.toJson(acc));
+    }
+
+    public Result getAllCustomers() {
+        return ok(Json.toJson(customerRepo.getAllCustomers()));
+    }
+
+    public Result getCustomerById(Long id) {
+        return ok(Json.toJson(customerRepo.getCustomerById(id)));
     }
 
 }

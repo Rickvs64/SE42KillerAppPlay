@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/rickv/Desktop/play-java-starter-example/conf/routes
-// @DATE:Mon May 21 14:12:10 CEST 2018
+// @DATE:Tue May 29 12:28:10 CEST 2018
 
 package router
 
@@ -36,6 +36,8 @@ class Routes(
   Custom6Controller_10: controllers.Custom6Controller,
   // @LINE:39
   CustomerController_7: controllers.CustomerController,
+  // @LINE:50
+  AccountController_11: controllers.AccountController,
   val prefix: String
 ) extends GeneratedRouter {
 
@@ -62,12 +64,14 @@ class Routes(
     // @LINE:31
     Custom6Controller_10: controllers.Custom6Controller,
     // @LINE:39
-    CustomerController_7: controllers.CustomerController
-  ) = this(errorHandler, HomeController_2, CountController_1, AsyncController_3, Assets_6, Custom1Controller_0, Custom2Controller_8, Custom3Controller_9, Custom4Controller_4, Custom5Controller_5, Custom6Controller_10, CustomerController_7, "/")
+    CustomerController_7: controllers.CustomerController,
+    // @LINE:50
+    AccountController_11: controllers.AccountController
+  ) = this(errorHandler, HomeController_2, CountController_1, AsyncController_3, Assets_6, Custom1Controller_0, Custom2Controller_8, Custom3Controller_9, Custom4Controller_4, Custom5Controller_5, Custom6Controller_10, CustomerController_7, AccountController_11, "/")
 
   def withPrefix(prefix: String): Routes = {
     router.RoutesPrefix.setPrefix(prefix)
-    new Routes(errorHandler, HomeController_2, CountController_1, AsyncController_3, Assets_6, Custom1Controller_0, Custom2Controller_8, Custom3Controller_9, Custom4Controller_4, Custom5Controller_5, Custom6Controller_10, CustomerController_7, prefix)
+    new Routes(errorHandler, HomeController_2, CountController_1, AsyncController_3, Assets_6, Custom1Controller_0, Custom2Controller_8, Custom3Controller_9, Custom4Controller_4, Custom5Controller_5, Custom6Controller_10, CustomerController_7, AccountController_11, prefix)
   }
 
   private[this] val defaultPrefix: String = {
@@ -87,6 +91,13 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """custom6""", """controllers.Custom6Controller.example"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """custom6submit""", """controllers.Custom6Controller.loginSubmit"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """customer/add/""" + "$" + """newname<[^/]+>""", """controllers.CustomerController.addCustomer(newname:String)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """customer/getall""", """controllers.CustomerController.getAllCustomers()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """customer/getbyid/""" + "$" + """id<[^/]+>""", """controllers.CustomerController.getCustomerById(id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """account/getall""", """controllers.AccountController.getAllAccounts()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """account/getbyid/""" + "$" + """id<[^/]+>""", """controllers.AccountController.getAccountById(id:Long)"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """account/delete/""" + "$" + """id<[^/]+>""", """controllers.AccountController.deleteAccount(id:Long)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """account/add""", """controllers.AccountController.addAccount()"""),
+    ("""PUT""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """account/update/""" + "$" + """id<[^/]+>""", """controllers.AccountController.updateAccount(id:Long)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -310,6 +321,132 @@ class Routes(
     )
   )
 
+  // @LINE:42
+  private[this] lazy val controllers_CustomerController_getAllCustomers12_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("customer/getall")))
+  )
+  private[this] lazy val controllers_CustomerController_getAllCustomers12_invoker = createInvoker(
+    CustomerController_7.getAllCustomers(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CustomerController",
+      "getAllCustomers",
+      Nil,
+      "GET",
+      this.prefix + """customer/getall""",
+      """ Get all customers""",
+      Seq()
+    )
+  )
+
+  // @LINE:45
+  private[this] lazy val controllers_CustomerController_getCustomerById13_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("customer/getbyid/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_CustomerController_getCustomerById13_invoker = createInvoker(
+    CustomerController_7.getCustomerById(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.CustomerController",
+      "getCustomerById",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """customer/getbyid/""" + "$" + """id<[^/]+>""",
+      """ Get customer by id""",
+      Seq()
+    )
+  )
+
+  // @LINE:50
+  private[this] lazy val controllers_AccountController_getAllAccounts14_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/getall")))
+  )
+  private[this] lazy val controllers_AccountController_getAllAccounts14_invoker = createInvoker(
+    AccountController_11.getAllAccounts(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.AccountController",
+      "getAllAccounts",
+      Nil,
+      "GET",
+      this.prefix + """account/getall""",
+      """ Get all accounts""",
+      Seq()
+    )
+  )
+
+  // @LINE:53
+  private[this] lazy val controllers_AccountController_getAccountById15_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/getbyid/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_AccountController_getAccountById15_invoker = createInvoker(
+    AccountController_11.getAccountById(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.AccountController",
+      "getAccountById",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """account/getbyid/""" + "$" + """id<[^/]+>""",
+      """ Get account by id""",
+      Seq()
+    )
+  )
+
+  // @LINE:56
+  private[this] lazy val controllers_AccountController_deleteAccount16_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/delete/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_AccountController_deleteAccount16_invoker = createInvoker(
+    AccountController_11.deleteAccount(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.AccountController",
+      "deleteAccount",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """account/delete/""" + "$" + """id<[^/]+>""",
+      """ Delete account by id""",
+      Seq()
+    )
+  )
+
+  // @LINE:59
+  private[this] lazy val controllers_AccountController_addAccount17_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/add")))
+  )
+  private[this] lazy val controllers_AccountController_addAccount17_invoker = createInvoker(
+    AccountController_11.addAccount(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.AccountController",
+      "addAccount",
+      Nil,
+      "POST",
+      this.prefix + """account/add""",
+      """ Add account""",
+      Seq()
+    )
+  )
+
+  // @LINE:62
+  private[this] lazy val controllers_AccountController_updateAccount18_route = Route("PUT",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/update/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_AccountController_updateAccount18_invoker = createInvoker(
+    AccountController_11.updateAccount(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.AccountController",
+      "updateAccount",
+      Seq(classOf[Long]),
+      "PUT",
+      this.prefix + """account/update/""" + "$" + """id<[^/]+>""",
+      """ Update account by id""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -383,6 +520,48 @@ class Routes(
     case controllers_CustomerController_addCustomer11_route(params@_) =>
       call(params.fromPath[String]("newname", None)) { (newname) =>
         controllers_CustomerController_addCustomer11_invoker.call(CustomerController_7.addCustomer(newname))
+      }
+  
+    // @LINE:42
+    case controllers_CustomerController_getAllCustomers12_route(params@_) =>
+      call { 
+        controllers_CustomerController_getAllCustomers12_invoker.call(CustomerController_7.getAllCustomers())
+      }
+  
+    // @LINE:45
+    case controllers_CustomerController_getCustomerById13_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_CustomerController_getCustomerById13_invoker.call(CustomerController_7.getCustomerById(id))
+      }
+  
+    // @LINE:50
+    case controllers_AccountController_getAllAccounts14_route(params@_) =>
+      call { 
+        controllers_AccountController_getAllAccounts14_invoker.call(AccountController_11.getAllAccounts())
+      }
+  
+    // @LINE:53
+    case controllers_AccountController_getAccountById15_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_AccountController_getAccountById15_invoker.call(AccountController_11.getAccountById(id))
+      }
+  
+    // @LINE:56
+    case controllers_AccountController_deleteAccount16_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_AccountController_deleteAccount16_invoker.call(AccountController_11.deleteAccount(id))
+      }
+  
+    // @LINE:59
+    case controllers_AccountController_addAccount17_route(params@_) =>
+      call { 
+        controllers_AccountController_addAccount17_invoker.call(AccountController_11.addAccount())
+      }
+  
+    // @LINE:62
+    case controllers_AccountController_updateAccount18_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_AccountController_updateAccount18_invoker.call(AccountController_11.updateAccount(id))
       }
   }
 }

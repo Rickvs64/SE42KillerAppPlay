@@ -11,4 +11,5 @@ public interface IAccountRepo {
     Account getAccountById(Long id);
     List<Account> getAllAccounts();
     boolean deleteAccount(Account account);
+    boolean updateAccount(Account account);
 }

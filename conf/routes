@@ -36,4 +36,27 @@ POST     /custom6submit             controllers.Custom6Controller.loginSubmit
 
 
 # Add customer
-GET    /customer/add/:newname       controllers.CustomerController.addCustomer(newname)
+GET     /customer/add/:newname      controllers.CustomerController.addCustomer(newname)
+
+# Get all customers
+GET     /customer/getall            controllers.CustomerController.getAllCustomers()
+
+# Get customer by id
+GET     /customer/getbyid/:id       controllers.CustomerController.getCustomerById(id: Long)
+
+
+
+# Get all accounts
+GET     /account/getall             controllers.AccountController.getAllAccounts()
+
+# Get account by id
+GET     /account/getbyid/:id        controllers.AccountController.getAccountById(id: Long)
+
+# Delete account by id
+GET     /account/delete/:id         controllers.AccountController.deleteAccount(id: Long)
+
+# Add account
+POST    /account/add                controllers.AccountController.addAccount()
+
+# Update account by id
+PUT     /account/update/:id         controllers.AccountController.updateAccount(id: Long)

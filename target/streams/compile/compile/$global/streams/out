@@ -1,4 +1,3 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\rickv\Desktop\play-java-starter-example\scriptFile.scala:1:1: expected class or object definition[0m
-[0m[[0m[31merror[0m] [0m[0m(mappedBy = "account")[0m
-[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rickv\Desktop\play-java-starter-example\conf\routes:62:1: too many arguments (2) for method updateAccount: (id: Long)play.mvc.Result[0m
+[0m[[0m[31merror[0m] [0m[0mPUT     /account/update/:id         controllers.AccountController.updateAccount(id: Long, name)[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m

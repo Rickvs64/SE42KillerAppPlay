@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/rickv/Desktop/play-java-starter-example/conf/routes
-// @DATE:Mon May 21 14:12:10 CEST 2018
+// @DATE:Tue May 29 12:28:10 CEST 2018
 
 import play.api.mvc.Call
 
@@ -48,10 +48,22 @@ package controllers {
     }
 
   
+    // @LINE:45
+    def getCustomerById(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "customer/getbyid/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+    }
+  
     // @LINE:39
     def addCustomer(newname:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "customer/add/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[String]].unbind("newname", newname)))
+    }
+  
+    // @LINE:42
+    def getAllCustomers(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "customer/getall")
     }
   
   }
@@ -178,6 +190,45 @@ package controllers {
     def message(): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "message")
+    }
+  
+  }
+
+  // @LINE:50
+  class ReverseAccountController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:50
+    def getAllAccounts(): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "account/getall")
+    }
+  
+    // @LINE:59
+    def addAccount(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "account/add")
+    }
+  
+    // @LINE:62
+    def updateAccount(id:Long): Call = {
+      
+      Call("PUT", _prefix + { _defaultPrefix } + "account/update/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+    }
+  
+    // @LINE:53
+    def getAccountById(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "account/getbyid/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+    }
+  
+    // @LINE:56
+    def deleteAccount(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "account/delete/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
   }
