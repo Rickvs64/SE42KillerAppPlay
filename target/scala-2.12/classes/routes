@@ -60,3 +60,9 @@ POST    /account/add                controllers.AccountController.addAccount()
 
 # Update account by id
 PUT     /account/update/:id         controllers.AccountController.updateAccount(id: Long)
+
+# Add account, requires JWT
+POST    /account/addJWT             controllers.AccountController.addAccountJWT()
+
+# Get token
+GET     /account/getToken/:id       controllers.AccountController.getToken(id: Long)

@@ -4,7 +4,7 @@
 		module="play-java-starter-example_2.12"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20180424091315"
+		publication="20180605104759"
 	>
 		<description>
 		play-java-starter-example
@@ -54,5 +54,7 @@
 		<dependency org="com.h2database" name="h2" rev="1.4.196" conf="compile->default(compile)"/>
 		<dependency org="org.assertj" name="assertj-core" rev="3.6.2" conf="test->default(compile)"/>
 		<dependency org="org.awaitility" name="awaitility" rev="2.0.0" conf="test->default(compile)"/>
+		<dependency org="com.typesafe.play" name="play-ahc-ws_2.12" rev="2.6.13" conf="compile->default(compile)"/>
+		<dependency org="com.auth0" name="java-jwt" rev="3.3.0" conf="compile->default(compile)"/>
 	</dependencies>
 </ivy-module>

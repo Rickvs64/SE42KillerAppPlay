@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/rickv/Desktop/play-java-starter-example/conf/routes
-// @DATE:Tue May 29 12:28:10 CEST 2018
+// @DATE:Tue Jun 05 12:04:39 CEST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -299,12 +299,32 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:65
+    def addAccountJWT: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AccountController.addAccountJWT",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "account/addJWT"})
+        }
+      """
+    )
+  
     // @LINE:53
     def getAccountById: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.AccountController.getAccountById",
       """
         function(id0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "account/getbyid/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
+        }
+      """
+    )
+  
+    // @LINE:68
+    def getToken: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.AccountController.getToken",
+      """
+        function(id0) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "account/getToken/" + encodeURIComponent((""" + implicitly[play.api.mvc.PathBindable[Long]].javascriptUnbind + """)("id", id0))})
         }
       """
     )

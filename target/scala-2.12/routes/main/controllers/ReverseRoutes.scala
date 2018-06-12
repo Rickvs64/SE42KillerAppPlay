@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/rickv/Desktop/play-java-starter-example/conf/routes
-// @DATE:Tue May 29 12:28:10 CEST 2018
+// @DATE:Tue Jun 05 12:04:39 CEST 2018
 
 import play.api.mvc.Call
 
@@ -219,10 +219,22 @@ package controllers {
       Call("PUT", _prefix + { _defaultPrefix } + "account/update/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
+    // @LINE:65
+    def addAccountJWT(): Call = {
+      
+      Call("POST", _prefix + { _defaultPrefix } + "account/addJWT")
+    }
+  
     // @LINE:53
     def getAccountById(id:Long): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "account/getbyid/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
+    }
+  
+    // @LINE:68
+    def getToken(id:Long): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "account/getToken/" + play.core.routing.dynamicString(implicitly[play.api.mvc.PathBindable[Long]].unbind("id", id)))
     }
   
     // @LINE:56

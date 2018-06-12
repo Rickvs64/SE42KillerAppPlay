@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/Users/rickv/Desktop/play-java-starter-example/conf/routes
-// @DATE:Tue May 29 12:28:10 CEST 2018
+// @DATE:Tue Jun 05 12:04:39 CEST 2018
 
 package router
 
@@ -98,6 +98,8 @@ class Routes(
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """account/delete/""" + "$" + """id<[^/]+>""", """controllers.AccountController.deleteAccount(id:Long)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """account/add""", """controllers.AccountController.addAccount()"""),
     ("""PUT""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """account/update/""" + "$" + """id<[^/]+>""", """controllers.AccountController.updateAccount(id:Long)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """account/addJWT""", """controllers.AccountController.addAccountJWT()"""),
+    ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """account/getToken/""" + "$" + """id<[^/]+>""", """controllers.AccountController.getToken(id:Long)"""),
     Nil
   ).foldLeft(List.empty[(String,String,String)]) { (s,e) => e.asInstanceOf[Any] match {
     case r @ (_,_,_) => s :+ r.asInstanceOf[(String,String,String)]
@@ -447,6 +449,42 @@ class Routes(
     )
   )
 
+  // @LINE:65
+  private[this] lazy val controllers_AccountController_addAccountJWT19_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/addJWT")))
+  )
+  private[this] lazy val controllers_AccountController_addAccountJWT19_invoker = createInvoker(
+    AccountController_11.addAccountJWT(),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.AccountController",
+      "addAccountJWT",
+      Nil,
+      "POST",
+      this.prefix + """account/addJWT""",
+      """ Add account, requires JWT""",
+      Seq()
+    )
+  )
+
+  // @LINE:68
+  private[this] lazy val controllers_AccountController_getToken20_route = Route("GET",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("account/getToken/"), DynamicPart("id", """[^/]+""",true)))
+  )
+  private[this] lazy val controllers_AccountController_getToken20_invoker = createInvoker(
+    AccountController_11.getToken(fakeValue[Long]),
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.AccountController",
+      "getToken",
+      Seq(classOf[Long]),
+      "GET",
+      this.prefix + """account/getToken/""" + "$" + """id<[^/]+>""",
+      """ Get token""",
+      Seq()
+    )
+  )
+
 
   def routes: PartialFunction[RequestHeader, Handler] = {
   
@@ -562,6 +600,18 @@ class Routes(
     case controllers_AccountController_updateAccount18_route(params@_) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
         controllers_AccountController_updateAccount18_invoker.call(AccountController_11.updateAccount(id))
+      }
+  
+    // @LINE:65
+    case controllers_AccountController_addAccountJWT19_route(params@_) =>
+      call { 
+        controllers_AccountController_addAccountJWT19_invoker.call(AccountController_11.addAccountJWT())
+      }
+  
+    // @LINE:68
+    case controllers_AccountController_getToken20_route(params@_) =>
+      call(params.fromPath[Long]("id", None)) { (id) =>
+        controllers_AccountController_getToken20_invoker.call(AccountController_11.getToken(id))
       }
   }
 }
