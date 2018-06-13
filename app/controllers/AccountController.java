@@ -94,7 +94,7 @@ public class AccountController extends Controller {
         JsonNode body = request().body().asJson();
 
         return ok(getSignedToken(userId));
-   ,. }
+    }
 
     /**
      * Creates a signed token that expires automatically after 10 minutes.

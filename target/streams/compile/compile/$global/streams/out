@@ -1,2 +1,22 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\rickv\Desktop\play-java-starter-example\app\controllers\AccountController.java:69:1: domains.JWT.JWTValidator.Error is not public in domains.JWT.JWTValidator; cannot be accessed from outside package[0m
-[0m[[0m[31merror[0m] [0m[0m        return jwtControllerHelper.verify(request(), res -> {[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rickv\Desktop\play-java-starter-example\app\controllers\AccountController.java:97:1: illegal start of expression[0m
+[0m[[0m[31merror[0m] [0m[0m   ,. }[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rickv\Desktop\play-java-starter-example\app\controllers\AccountController.java:97:1: illegal start of expression[0m
+[0m[[0m[31merror[0m] [0m[0m   ,. }[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rickv\Desktop\play-java-starter-example\app\controllers\AccountController.java:97:1: ';' expected[0m
+[0m[[0m[31merror[0m] [0m[0m   ,. }[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rickv\Desktop\play-java-starter-example\app\controllers\AccountController.java:105:1: illegal start of expression[0m
+[0m[[0m[31merror[0m] [0m[0m    private String getSignedToken(Long userId) throws UnsupportedEncodingException {[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rickv\Desktop\play-java-starter-example\app\controllers\AccountController.java:105:1: ';' expected[0m
+[0m[[0m[31merror[0m] [0m[0m    private String getSignedToken(Long userId) throws UnsupportedEncodingException {[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rickv\Desktop\play-java-starter-example\app\controllers\AccountController.java:105:1: ')' expected[0m
+[0m[[0m[31merror[0m] [0m[0m    private String getSignedToken(Long userId) throws UnsupportedEncodingException {[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rickv\Desktop\play-java-starter-example\app\controllers\AccountController.java:105:1: illegal start of expression[0m
+[0m[[0m[31merror[0m] [0m[0m    private String getSignedToken(Long userId) throws UnsupportedEncodingException {[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rickv\Desktop\play-java-starter-example\app\controllers\AccountController.java:105:1: ';' expected[0m
+[0m[[0m[31merror[0m] [0m[0m    private String getSignedToken(Long userId) throws UnsupportedEncodingException {[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rickv\Desktop\play-java-starter-example\app\controllers\AccountController.java:105:1: not a statement[0m
+[0m[[0m[31merror[0m] [0m[0m    private String getSignedToken(Long userId) throws UnsupportedEncodingException {[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rickv\Desktop\play-java-starter-example\app\controllers\AccountController.java:105:1: ';' expected[0m
+[0m[[0m[31merror[0m] [0m[0m    private String getSignedToken(Long userId) throws UnsupportedEncodingException {[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rickv\Desktop\play-java-starter-example\app\controllers\AccountController.java:116:1: reached end of file while parsing[0m
+[0m[[0m[31merror[0m] [0m[0m}[0m

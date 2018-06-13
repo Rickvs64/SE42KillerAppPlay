@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Product {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(discriminatorType = DiscriminatorType.INTEGER, name = "product_type", columnDefinition = "TINYINT(1)")
+public abstract class Product {
 
     @Id
     @GeneratedValue
